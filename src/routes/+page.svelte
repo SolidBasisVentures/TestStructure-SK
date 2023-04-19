@@ -7,7 +7,12 @@
 	$: svelteNumber = UniversalAdd(data.pageServerNumber + data.pageUniversalNumber);
 	
 	$: data.lazy.layoutServerDTDelay
-		.then(res => console.log('Page', res))
+		.then(res => console.log('Page Delay', res));
+	
+	$: setTimeout(() => {
+		data.lazy.layoutServerDTNoDelay
+			.then(res => console.log('Page No Delay', res));
+	}, 500)
 
 </script>
 
@@ -34,6 +39,15 @@
 		<span>...</span>
 	{:then layoutServerDTDelay}
 		<span>{layoutServerDTDelay}</span>
+	{:catch error}
+		<span>Error: {error.message}</span>
+	{/await}
+	<br/>
+	No Delay:
+	{#await data.lazy.layoutServerDTNoDelay}
+		<span>...</span>
+	{:then layoutServerDTNoDelay}
+		<span>{layoutServerDTNoDelay}</span>
 	{:catch error}
 		<span>Error: {error.message}</span>
 	{/await}
