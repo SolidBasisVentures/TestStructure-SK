@@ -1,8 +1,7 @@
-import type {PageServerLoad} from './$types';
-import {BackendAdd} from "$lib/server/backend";
+import {BackendAdd} from '$lib/server/backend'
 
-export const load = (async () => {
+export function load() {
 	return {
 		pageServerNumber: BackendAdd(1) as number
-	};
-}) satisfies PageServerLoad;
+	}
+}
