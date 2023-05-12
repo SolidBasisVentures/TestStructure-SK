@@ -3,6 +3,8 @@
 
     export let data;
 
+	$: console.log('Page Root Data', data)
+
     $: svelteNumber = UniversalAdd(data.pageServerNumber + data.pageUniversalNumber);
 
     $: data.lazy.layoutServerDTDelay

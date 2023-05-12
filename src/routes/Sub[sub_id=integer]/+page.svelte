@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import Component from './Component.svelte'
+	import Component from '$lib/Component.svelte'
 	import {deserialize, enhance} from '$app/forms'
 
 	async function doTest() {

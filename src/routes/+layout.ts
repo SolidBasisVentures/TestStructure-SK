@@ -7,10 +7,10 @@ export const load = (async ({data, depends}) => {
 		layoutUniversalNumber: UniversalAdd(data.layoutServerNumber) as number,
 		layoutUniversalDT: new Date().toISOString()
 	}
-	
+
 	console.log('Universal', result)
-	
+
 	depends('app:Universal')
-	
+
 	return result;
 }) satisfies LayoutLoad;

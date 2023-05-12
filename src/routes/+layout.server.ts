@@ -9,19 +9,19 @@ export const load = (async ({depends}) => {
 			}, ms);
 		});
 	}
-	
+
 	const result = {
-		layoutServerNumber: BackendAdd(1) as number,
+		layoutServerNumber: BackendAdd(1),
 		layoutServerDT: timeDelay(20),
 		lazy: {
 			layoutServerDTDelay: timeDelay(2000),
 			layoutServerDTNoDelay: new Promise<string>(resolve => {resolve(new Date().toISOString());})
 		}
 	};
-	
+
 	console.log('Server', result);
-	
+
 	depends('app:Server');
-	
+
 	return result;
 }) satisfies LayoutServerLoad;
