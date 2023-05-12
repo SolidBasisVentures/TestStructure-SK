@@ -7,6 +7,7 @@
 
 	$: console.log('Sub data - toOverwrite', data.toOverwrite)
 	$: console.log('Sub $Page - toOverwrite', $page.data.toOverwrite)
+	$: console.log('Sub params', $page.params.sub_id)
 
 	async function doTest() {
 		const data = new FormData()

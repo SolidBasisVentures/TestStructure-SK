@@ -8,6 +8,7 @@
 
 	$: console.log('Component data - toOverwrite', data?.toOverwrite)
 	$: console.log('Component $Page - toOverwrite', $page.data.toOverwrite)
+	$: console.log('Component params', $page.params.sub_id)
 
 	/* $: $page.data.lazy.layoutServerDTDelay
 		.then(res => console.log('Component', res)) */
