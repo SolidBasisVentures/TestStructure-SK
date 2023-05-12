@@ -3,17 +3,17 @@
 
     export let data;
 
-	$: console.log('Page Root Data', data)
+	// $: console.log('Page Root Data', data)
 
     $: svelteNumber = UniversalAdd(data.pageServerNumber + data.pageUniversalNumber);
 
-    $: data.lazy.layoutServerDTDelay
+    /* $: data.lazy.layoutServerDTDelay
         .then(res => console.log('Page Delay', res));
 
     $: setTimeout(() => {
         data.lazy.layoutServerDTNoDelay
             .then(res => console.log('Page No Delay', res));
-    }, 500)
+    }, 500) */
 
 </script>
 

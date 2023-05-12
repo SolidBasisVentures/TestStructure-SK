@@ -8,7 +8,7 @@ export const load = (async ({data, depends}) => {
 		layoutUniversalDT: new Date().toISOString()
 	}
 
-	console.log('Universal', result)
+	// console.log('Universal', result)
 
 	depends('app:Universal')
 

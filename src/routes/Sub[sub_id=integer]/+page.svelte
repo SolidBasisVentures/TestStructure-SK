@@ -1,13 +1,19 @@
 <script lang='ts'>
 	import Component from '$lib/Component.svelte'
 	import {deserialize, enhance} from '$app/forms'
+	import {page} from '$app/stores'
+
+	export let data
+
+	$: console.log('Sub $Page - toOverwrite', $page.data.toOverwrite)
+	$: console.log('Sub data - toOverwrite', data.toOverwrite)
 
 	async function doTest() {
 
 		const data = new FormData()
 		data.set('id', '2')
 
-		console.log('Test', data)
+		// console.log('Test', data)
 
 		const response = await fetch('?/testAction', {
 			method: 'POST',
@@ -17,7 +23,7 @@
 		/** @type {import('@sveltejs/kit').ActionResult} */
 		const result = deserialize(await response.text())
 
-		console.log('Succeeded', result)
+		// console.log('Succeeded', result)
 	}
 </script>
 

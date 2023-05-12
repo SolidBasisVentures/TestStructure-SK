@@ -1,11 +1,11 @@
 <script lang="ts">
 	import {UniversalAdd} from "$lib/universal";
 	import {page} from "$app/stores";
-	
+
 	$: svelteNumber = UniversalAdd($page.data.subPageServerNumber + $page.data.subPageUniversalNumber);
-	
-	$: $page.data.lazy.layoutServerDTDelay
-		.then(res => console.log('Component', res))
+
+	/* $: $page.data.lazy.layoutServerDTDelay
+		.then(res => console.log('Component', res)) */
 </script>
 
 <h2>Sub {$page.params.sub_id} Component</h2>
