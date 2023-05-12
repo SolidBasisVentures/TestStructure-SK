@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Routes/Lib" pattern="file[example-app2]:src/lib//*||file[example-app2]:src/routes//*" />
+</component>
