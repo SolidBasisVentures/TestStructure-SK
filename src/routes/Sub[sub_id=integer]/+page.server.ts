@@ -2,11 +2,13 @@ import type {PageServerLoad} from './$types'
 import {BackendAdd} from '$lib/server/backend'
 import type {Actions} from '@sveltejs/kit'
 
-export const load = (async ({params}) => {
+export const load = (async ({params, depends}) => {
+	depends('app:Sub')
+
 	return {
 		subPageServerNumber: BackendAdd(+params.sub_id),
 		subPageTestData: 1,
-		toOverwrite: 'Sub',
+		toOverwrite: 'Sub'
 	}
 }) satisfies PageServerLoad
 

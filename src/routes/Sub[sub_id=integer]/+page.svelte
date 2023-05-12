@@ -5,11 +5,10 @@
 
 	export let data
 
-	$: console.log('Sub $Page - toOverwrite', $page.data.toOverwrite)
 	$: console.log('Sub data - toOverwrite', data.toOverwrite)
+	$: console.log('Sub $Page - toOverwrite', $page.data.toOverwrite)
 
 	async function doTest() {
-
 		const data = new FormData()
 		data.set('id', '2')
 
@@ -23,11 +22,12 @@
 		/** @type {import('@sveltejs/kit').ActionResult} */
 		const result = deserialize(await response.text())
 
-		// console.log('Succeeded', result)
+		console.info('Succeeded', result)
 	}
 </script>
 
-<Component/>
+<Component {data}/>
+
 <div>
 	<form method='POST'
 	      action='?/testAction'
@@ -37,6 +37,10 @@
 		       type='hidden'/>
 		<button>
 			Form Test
+		</button>
+		<button type='button'
+		        on:click={() => console.info('No Action')}>
+			No Action
 		</button>
 	</form>
 </div>

@@ -35,8 +35,8 @@
 
 	// $: console.log('DTDelay', layoutServerDTDelay)
 
-	$: console.log('Layout $Page - toOverwrite', $page.data.toOverwrite)
 	$: console.log('Layout data - toOverwrite', data.toOverwrite)
+	$: console.log('Layout $Page - toOverwrite', $page.data.toOverwrite)
 
 </script>
 
