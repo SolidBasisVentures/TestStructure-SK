@@ -1,5 +1,6 @@
 <script lang='ts'>
 	import {UniversalAdd} from '$lib/universal'
+	import {enhance} from '$app/forms'
 
 	export let data
 
@@ -52,4 +53,13 @@
 	{:catch error}
 		<span>Error: {error.message}</span>
 	{/await}
+</div>
+<div>
+	<form method='POST'
+	      action='?/testErrors'
+	      use:enhance>
+		<button>
+			Errors Test
+		</button>
+	</form>
 </div>

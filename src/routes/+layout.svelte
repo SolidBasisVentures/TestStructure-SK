@@ -2,11 +2,10 @@
 	import {UniversalAdd} from '$lib/universal'
 	import {invalidate, invalidateAll} from '$app/navigation'
 	import {browser} from '$app/environment'
-	import {page} from '$app/stores'
 
 	export let data
 
-	$: svelteNumber = UniversalAdd($page.data.layoutServerNumber + $page.data.layoutUniversalNumber)
+	$: svelteNumber = UniversalAdd(data.layoutServerNumber + data.layoutUniversalNumber)
 
 	async function doInvalidateAll() {
 		await invalidateAll()
@@ -28,35 +27,32 @@
 
 	let svelteDT = new Date().toISOString()
 
-	let layoutServerDTDelay: Awaited<typeof $page.data.lazy.layoutServerDTDelay>
+	let layoutServerDTDelay: Awaited<typeof data.lazy.layoutServerDTDelay>
 
-	$: $page.data.lazy.layoutServerDTDelay
+	$: data.lazy.layoutServerDTDelay
 	        .then(res => layoutServerDTDelay = res)
 
 	// $: console.log('DTDelay', layoutServerDTDelay)
-
-	$: console.log('Layout data - toOverwrite', data.toOverwrite)
-	$: console.log('Layout $Page - toOverwrite', $page.data.toOverwrite)
 
 </script>
 
 <h1>Layout</h1>
 
 <div>
-	Layout Server TS Number: {$page.data.layoutServerNumber}
+	Layout Server TS Number: {data.layoutServerNumber}
 </div>
 <div>
-	Layout Universal TS Number: {$page.data.layoutUniversalNumber}
+	Layout Universal TS Number: {data.layoutUniversalNumber}
 </div>
 <div>
 	Layout Svelte Number: {svelteNumber}
 </div>
 <div>
-	Layout Server DateTime: {$page.data.layoutServerDT}
+	Layout Server DateTime: {data.layoutServerDT}
 </div>
 <div>
 	Layout Server DateTime Delay:
-	{#await $page.data.lazy.layoutServerDTDelay}
+	{#await data.lazy.layoutServerDTDelay}
 		<span>...</span>
 	{:then layoutServerDTDelay}
 		<span>{layoutServerDTDelay}</span>
@@ -65,7 +61,7 @@
 	{/await}
 </div>
 <div>
-	Layout Universal DateTime: {$page.data.layoutUniversalDT}
+	Layout Universal DateTime: {data.layoutUniversalDT}
 </div>
 <div>
 	Layout Svelte DateTime: {svelteDT}
