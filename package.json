@@ -1,6 +1,6 @@
 {
 	"name": "example-app2",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -13,7 +13,6 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"Deploy-Production": "pnpm version patch && vite build && dotenv -- bash -c 'rsync -e \"ssh -i \"$SSH_CERT_FILE\"\" -rvRz --delete --force ~/WebstormProjects/Works-Now-SK/./{.npmrc,package.json,pnpm-lock.yaml,./build} \"$SSH_SERVER\":\"$SSH_SERVER_DIR\"' && dotenv -- bash -c 'ssh -i \"$SSH_CERT_FILE\" \"$SSH_SERVER\" \"~/bin/processBuild\"' && git push"
-
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
