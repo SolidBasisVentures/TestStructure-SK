@@ -2,11 +2,8 @@
 	import {UniversalAdd} from "$lib/universal";
 	import {page} from "$app/stores";
 
-	export let data
-
 	$: svelteNumber = UniversalAdd($page.data.subPageServerNumber + $page.data.subPageUniversalNumber);
 
-	$: console.log('Component data - toOverwrite', data?.toOverwrite)
 	$: console.log('Component $Page - toOverwrite', $page.data.toOverwrite)
 	$: console.log('Component params', $page.params.sub_id)
 
