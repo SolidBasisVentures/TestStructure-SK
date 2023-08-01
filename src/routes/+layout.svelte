@@ -2,6 +2,7 @@
     import {UniversalAdd} from "$lib/universal";
     import {invalidate, invalidateAll} from "$app/navigation";
     import {browser} from "$app/environment";
+    import Building from '@iconify-icons/fa6-regular/building'
 
     export let data;
 
@@ -36,7 +37,9 @@
 
 </script>
 
-<h1>Layout</h1>
+<h1>
+	Layout
+</h1>
 
 <div>
     Layout Server TS Number: {data.layoutServerNumber}
