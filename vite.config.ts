@@ -1,16 +1,11 @@
 import {sveltekit} from '@sveltejs/kit/vite'
 import {defineConfig} from 'vitest/config'
 import mkcert from 'vite-plugin-mkcert'
-import Icons from 'unplugin-icons/vite'
 
 export default defineConfig({
 	plugins: [
 		sveltekit(),
-		mkcert(),
-		Icons({
-			autoInstall: true,
-			compiler: 'svelte'
-		})
+		mkcert()
 	],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']

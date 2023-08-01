@@ -68,3 +68,5 @@ ecosystem.config.*
 backup.dump
 
 ./build
+
+.npmrc
