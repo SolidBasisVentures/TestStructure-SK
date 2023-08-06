@@ -7,6 +7,9 @@ export async function load(e: PageServerLoadEvent) {
 
 	const layoutServerDTDelay = await parentData.lazy.layoutServerDTDelay
 
+	console.log('Foo = ', e.url.searchParams.get('Foo'))
+	console.log('Bar = ', e.url.searchParams.get('Bar'))
+
 	console.log('----------layoutServerDTDelay', layoutServerDTDelay)
 
 	return {
@@ -15,8 +18,14 @@ export async function load(e: PageServerLoadEvent) {
 }
 
 export const actions: Actions = {
-	testAction: async (e) => {
-		console.log('++++++++++++testAction FormData', await e.request.formData())
+	testAction: async ({request, url}) => {
+		if (url.searchParams.get('Foo')) {
+			console.log('Foo = ', url.searchParams.get('Foo'))
+		}
+		if (url.searchParams.get('Bar')) {
+			console.log('Bar = ', url.searchParams.get('Bar'))
+		}
+		console.log('++++++++++++testAction FormData', await request.formData())
 
 		return {success: true, message: 'Test Executed'}
 	}
