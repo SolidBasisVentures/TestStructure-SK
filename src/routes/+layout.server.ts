@@ -14,6 +14,7 @@ export const load = (async ({depends}) => {
 		layoutServerNumber: BackendAdd(1),
 		layoutServerDT: timeDelay(20),
 		lazy: {
+			/** async delay of 2 seconds */
 			layoutServerDTDelay: timeDelay(2000),
 			layoutServerDTNoDelay: new Promise<string>(resolve => {resolve(new Date().toISOString());})
 		}

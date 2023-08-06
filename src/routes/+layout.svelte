@@ -2,7 +2,6 @@
 	import {UniversalAdd} from '$lib/universal'
 	import {invalidate, invalidateAll} from '$app/navigation'
 	import {browser} from '$app/environment'
-	import {faBuilding} from '@fortawesome/pro-regular-svg-icons'
 
 	export let data
 
