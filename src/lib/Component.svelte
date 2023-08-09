@@ -1,8 +1,7 @@
 <script lang="ts">
 	import {UniversalAdd} from "$lib/universal";
 	import {page} from "$app/stores";
-	import {goto} from '$app/navigation'
-
+import {goto} from '$app/navigation'
 	$: svelteNumber = UniversalAdd($page.data.subPageServerNumber + $page.data.subPageUniversalNumber);
 
 	$: $page.data.lazy.layoutServerDTDelay
@@ -31,6 +30,10 @@
 		}
 		goto(url.href, {replaceState: true})
 	}
+
+    $: console.log('Component $Page - toOverwrite', $page.data.toOverwrite)
+    $: console.log('Component params', $page.params.sub_id)
+
 </script>
 
 <h2>Sub {$page.params.sub_id} Component</h2>

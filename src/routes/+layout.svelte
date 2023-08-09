@@ -32,7 +32,7 @@
 	$: data.lazy.layoutServerDTDelay
 	       .then(res => layoutServerDTDelay = res)
 
-	$: console.log('DTDelay', layoutServerDTDelay)
+	// $: console.log('DTDelay', layoutServerDTDelay)
 
 </script>
 

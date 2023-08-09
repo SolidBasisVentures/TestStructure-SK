@@ -1,21 +1,25 @@
-import type {PageServerLoadEvent} from './$types'
+import type {PageServerLoad} from './$types'
 import {BackendAdd} from '$lib/server/backend'
 import type {Actions} from '@sveltejs/kit'
 
-export async function load(e: PageServerLoadEvent) {
-	const parentData = await e.parent()
+export const load = (async ({params, url, parent, depends}) => {
+	depends('app:Sub')
+
+	const parentData = await parent()
 
 	const layoutServerDTDelay = await parentData.lazy.layoutServerDTDelay
 
-	console.log('Foo = ', e.url.searchParams.get('Foo'))
-	console.log('Bar = ', e.url.searchParams.get('Bar'))
+	console.log('Foo = ', url.searchParams.get('Foo'))
+	console.log('Bar = ', url.searchParams.get('Bar'))
 
 	console.log('----------layoutServerDTDelay', layoutServerDTDelay)
 
 	return {
-		subPageServerNumber: BackendAdd(+e.params.sub_id)
+		subPageServerNumber: BackendAdd(+params.sub_id),
+		subPageTestData: 1,
+		toOverwrite: 'Sub'
 	}
-}
+}) satisfies PageServerLoad
 
 export const actions: Actions = {
 	testAction: async ({request, url}) => {
