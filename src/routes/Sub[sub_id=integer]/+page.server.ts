@@ -2,17 +2,17 @@ import type {PageServerLoad} from './$types'
 import {BackendAdd} from '$lib/server/backend'
 import type {Actions} from '@sveltejs/kit'
 
-export const load = (async ({params, url, parent, depends}) => {
+export const load = (async ({params, url, depends}) => {
 	depends('app:Sub')
 
-	const parentData = await parent()
-
-	const layoutServerDTDelay = await parentData.lazy.layoutServerDTDelay
+	// const parentData = await parent()
+	//
+	// const layoutServerDTDelay = await parentData.lazy.layoutServerDTDelay
 
 	console.log('Foo = ', url.searchParams.get('Foo'))
 	console.log('Bar = ', url.searchParams.get('Bar'))
 
-	console.log('----------layoutServerDTDelay', layoutServerDTDelay)
+	// console.log('----------layoutServerDTDelay', layoutServerDTDelay)
 
 	return {
 		subPageServerNumber: BackendAdd(+params.sub_id),
