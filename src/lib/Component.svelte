@@ -4,6 +4,7 @@
 	import {goto} from '$app/navigation'
 	import Icon from '@iconify/svelte'
 	import {EIcon} from '$lib/EIcon'
+	import 'iconify-icon'
 
 	$: svelteNumber = UniversalAdd($page.data.subPageServerNumber + $page.data.subPageUniversalNumber)
 
@@ -93,4 +94,8 @@
 </div>
 <div style='color: red;'>
 	<Icon {...EIcon.Home}/>
+	<iconify-icon
+		icon="mdi:alert"
+		style="color: #ba3329; font-size: 48px"
+	></iconify-icon>
 </div>

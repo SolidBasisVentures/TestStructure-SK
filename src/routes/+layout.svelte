@@ -39,7 +39,6 @@
 <h1>
 	Layout
 </h1>
-
 <div>
 	Layout Server TS Number: {data.layoutServerNumber}
 </div>
