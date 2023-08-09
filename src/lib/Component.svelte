@@ -1,11 +1,13 @@
-<script lang="ts">
-	import {UniversalAdd} from "$lib/universal";
-	import {page} from "$app/stores";
-import {goto} from '$app/navigation'
-	$: svelteNumber = UniversalAdd($page.data.subPageServerNumber + $page.data.subPageUniversalNumber);
+<script lang='ts'>
+	import {UniversalAdd} from '$lib/universal'
+	import {page} from '$app/stores'
+	import {goto} from '$app/navigation'
+	import {home} from '@iconify/json'
+
+	$: svelteNumber = UniversalAdd($page.data.subPageServerNumber + $page.data.subPageUniversalNumber)
 
 	$: $page.data.lazy.layoutServerDTDelay
-		.then(res => console.log('Component', res))
+	        .then(res => console.log('Component', res))
 
 	let inputFoo: HTMLInputElement
 
@@ -31,8 +33,8 @@ import {goto} from '$app/navigation'
 		goto(url.href, {replaceState: true})
 	}
 
-    $: console.log('Component $Page - toOverwrite', $page.data.toOverwrite)
-    $: console.log('Component params', $page.params.sub_id)
+	$: console.log('Component $Page - toOverwrite', $page.data.toOverwrite)
+	$: console.log('Component params', $page.params.sub_id)
 
 </script>
 
@@ -71,9 +73,10 @@ import {goto} from '$app/navigation'
 	<input type='text'
 	       value={$page.url.searchParams.get('Foo') ?? ''}
 	       bind:this={inputFoo}/>
-	       <button type='button' on:click={doWriteFoo}>
-		       Write Foo
-	       </button>
+	<button type='button'
+	        on:click={doWriteFoo}>
+		Write Foo
+	</button>
 </div>
 <div>
 	Bar: {$page.url.searchParams.get('Bar')}
@@ -82,7 +85,8 @@ import {goto} from '$app/navigation'
 	<input type='text'
 	       value={$page.url.searchParams.get('Bar') ?? ''}
 	       bind:this={inputBar}/>
-	       <button type='button' on:click={doWriteBar}>
-		       Write Bar
-	       </button>
+	<button type='button'
+	        on:click={doWriteBar}>
+		Write Bar
+	</button>
 </div>
